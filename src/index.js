@@ -12,7 +12,7 @@ import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import {takeEvery, put} from 'redux-saga/effects';
 
-function* fetchGifSaga(){ 
+function* fetchGifSaga(action){ 
     console.log('made it into fetchGifSaga');
     //TO DO make this real
     let response = yield axios({
@@ -25,7 +25,7 @@ function* fetchGifSaga(){
             payload: response.data
         });
         console.log('this is our gif', response.data);
-  }
+}
   
 // Our only Reducer
 const getGif = (state = [], action) => {
