@@ -1,5 +1,5 @@
-[ ] Create DB
-    [ ] run queries in sql file `database.sql`.
+[x] Create DB
+    [x] run queries in sql file `database.sql`.
 
 --- Search View ---
 
