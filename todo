@@ -18,8 +18,8 @@
 --- Favorites View ---
     --Static--
 [x] Button? to route back to search view
-[ ] Show all favorited gifs on dom
-[ ] drop down/option for each gif (select category)
+[~] Show all favorited gifs on dom
+[x] drop down/option for each gif (select category)
     [ ] submit category button
 
     --Functionality--
