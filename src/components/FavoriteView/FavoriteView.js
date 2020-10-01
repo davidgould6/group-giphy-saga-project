@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
+import FavoriteItem from '../FavoriteItem/FavoriteItem';
 
 class FavoriteView extends Component {
 
@@ -17,8 +18,11 @@ class FavoriteView extends Component {
         return( // Can also just use <> </> instead of divs
             <div>
                 FavoriteView Component
-                <img src={""} alt=""/>
-                {JSON.stringify(this.props.reduxState)}
+                <br></br>
+                {JSON.stringify(this.props.reduxState.getGif)}
+                {this.props.reduxState.getGif.map(gif => 
+                    <FavoriteItem key={gif.id} gif={gif} />
+                )}
             </div>
         );
     }

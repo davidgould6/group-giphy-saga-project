@@ -17,6 +17,9 @@ class SearchView extends Component {
            type:'CREATE_GIF',
            payload: this.state.searchParams
         });
+        this.setState({
+            searchParams: ''
+        })
     }
 
     render(){
@@ -24,7 +27,7 @@ class SearchView extends Component {
         return( 
             <div>
                 THIS IS THE SEARCHVIEW COMPONENT
-                <input type="text" placeholder="Search for gif" onChange={this.onSearchGifChange}/>
+                <input type="text" value={this.state.searchParams} placeholder="Search for gif" onChange={this.onSearchGifChange}/>
                 <button onClick={this.submitSearch}>Search</button>
                 <div className="displayGifs">
 
