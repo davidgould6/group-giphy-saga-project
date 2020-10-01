@@ -29,11 +29,10 @@ function* fetchGifSaga(action){
   
 function* createGifSaga(action){
         console.log('this is action.payload in index.js', action.payload)
-    let stringToSend = action.payload
     let response = yield axios({
         method: 'POST',
         url: '/api/giphy',
-        data: {string:stringToSend}
+        data: {string: action.payload}
     });
     yield put({
         type: 'API_RESULT',
@@ -42,6 +41,17 @@ function* createGifSaga(action){
 
     console.log('response data', response)
   }
+
+function* createFavoriteSaga(action){
+    console.log('this is our Favorites payload', action.payload);
+    //let urlToSend = action.payload
+    yield axios({
+        method: 'POST',
+        url: '/api/favorite',
+        data: {url: action.payload}
+    });
+    
+}
 
 const giphyReducer = (state = [], action) => {
     if(action.type === 'API_RESULT'){
@@ -61,6 +71,7 @@ const getGif = (state = [], action) => {
 function* sagaRoot() {
    yield takeEvery("FETCH_GIF", fetchGifSaga);
    yield takeEvery("CREATE_GIF", createGifSaga)
+   yield takeEvery("CREATE_FAVORITE", createFavoriteSaga)
 }
 
 

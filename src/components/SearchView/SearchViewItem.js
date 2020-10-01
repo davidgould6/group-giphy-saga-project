@@ -5,6 +5,10 @@ class SearchViewItem extends Component {
 
 addFavorite = (imageUrl) => {
     console.log('added a favorite!!!', imageUrl);
+    this.props.dispatch({
+        type: 'CREATE_FAVORITE',
+        payload: imageUrl
+    })
 } 
     render(){
         console.log('this is our props in ITEM', this.props)
@@ -17,4 +21,4 @@ addFavorite = (imageUrl) => {
     }
 }
 
-export default SearchViewItem;
+export default connect()(SearchViewItem);
