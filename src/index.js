@@ -38,7 +38,7 @@ function* createGifSaga(action){
 
     console.log('response data', response)
   }
-}
+
 
 // Our only Reducer
 const getGif = (state = [], action) => {
