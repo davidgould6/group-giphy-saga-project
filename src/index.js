@@ -27,6 +27,19 @@ function* fetchGifSaga(action){
         console.log('this is our gif', response.data);
 }
   
+function* createGifSaga(action){
+        console.log('this is action.payload in index.js', action.payload)
+    let stringToSend = action.payload
+    let response = yield axios({
+        method: 'POST',
+        url: '/api/giphy',
+        data: {string:stringToSend}
+    });
+
+    console.log('response data', response)
+  }
+}
+
 // Our only Reducer
 const getGif = (state = [], action) => {
     if(action.type === 'GET_GIF'){
@@ -38,6 +51,7 @@ const getGif = (state = [], action) => {
 
 function* sagaRoot() {
    yield takeEvery("FETCH_GIF", fetchGifSaga);
+   yield takeEvery("CREATE_GIF", createGifSaga)
 }
 
 
