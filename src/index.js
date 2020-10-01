@@ -14,22 +14,26 @@ import {takeEvery, put} from 'redux-saga/effects';
 
 function* fetchGifSaga(action){ 
     console.log('made it into fetchGifSaga');
-    console.log('this is action.payload in index.js', action.payload)
+    //TO DO make this real
     let response = yield axios({
-        method: 'POST',
-        url: '/api/giphy',
-        data: action.payload
-    });
-
-    console.log('response data', response)
-  }
+            method: 'GET',
+            url: '/api/favorite'
+        })
+        console.log('response', response.data)
+        yield put({
+            type: 'GET_GIF',
+            payload: response.data
+        });
+        console.log('this is our gif', response.data);
+}
   
 // Our only Reducer
 const getGif = (state = [], action) => {
     if(action.type === 'GET_GIF'){
-        return 1
+        console.log('getGif changing state');
+        return action.payload;
     }
-    return 0
+    return state;
 }
 
 function* sagaRoot() {
