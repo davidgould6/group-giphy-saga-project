@@ -12,19 +12,16 @@ import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import {takeEvery, put} from 'redux-saga/effects';
 
-function* fetchGifSaga(){ 
+function* fetchGifSaga(action){ 
     console.log('made it into fetchGifSaga');
-    //TO DO make this real
-    // let response = yield axios({
-    //         method: 'GET',
-    //         url: '/api/plant'
-    //     })
-    //     console.log(response.data, 'response')
-    //     yield put({
-    //         type: 'GET_PLANT',
-    //         payload: response.data
-    //     });
-        // console.log('this is our fruit', response.data);
+    console.log('this is action.payload in index.js', action.payload)
+    let response = yield axios({
+        method: 'POST',
+        url: '/api/giphy',
+        data: action.payload
+    });
+
+    console.log('response data', response)
   }
   
 // Our only Reducer
