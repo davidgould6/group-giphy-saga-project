@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import SearchViewItem from './SearchViewItem';
 
 class SearchView extends Component {
     state = {
@@ -24,13 +25,19 @@ class SearchView extends Component {
 
     render(){
         console.log('this is our state.searchParams', this.state.searchParams);
+        console.log('this.props is ', this.props);
         return( 
             <div>
                 THIS IS THE SEARCHVIEW COMPONENT
                 <input type="text" value={this.state.searchParams} placeholder="Search for gif" onChange={this.onSearchGifChange}/>
                 <button onClick={this.submitSearch}>Search</button>
                 <div className="displayGifs">
-
+                    {this.props.reduxState.giphyReducer.map((item, i) => 
+                        <SearchViewItem 
+                        key={i}
+                        item={item}
+                        id={i}/>
+                        )}
                 </div>
             </div>
         );

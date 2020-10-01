@@ -35,11 +35,20 @@ function* createGifSaga(action){
         url: '/api/giphy',
         data: {string:stringToSend}
     });
+    yield put({
+        type: 'API_RESULT',
+        payload: response.data.data
+    });
 
     console.log('response data', response)
   }
 
-
+const giphyReducer = (state = [], action) => {
+    if(action.type === 'API_RESULT'){
+        return action.payload;
+    }
+    return state;
+}
 // Our only Reducer
 const getGif = (state = [], action) => {
     if(action.type === 'GET_GIF'){
@@ -58,7 +67,10 @@ function* sagaRoot() {
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
-    combineReducers({ getGif }),
+    combineReducers({ 
+        getGif,
+        giphyReducer
+     }),
     applyMiddleware(sagaMiddleware, logger),
   );
 
