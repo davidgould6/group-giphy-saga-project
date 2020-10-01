@@ -14,7 +14,7 @@ class SearchView extends Component {
 
     submitSearch = () => {
         this.props.dispatch({
-           type:'FETCH_GIF',
+           type:'CREATE_GIF',
            payload: this.state.searchParams
         });
     }

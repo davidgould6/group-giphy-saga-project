@@ -12,18 +12,23 @@ import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import {takeEvery, put} from 'redux-saga/effects';
 
-function* fetchGifSaga(action){ 
+function* createGifSaga(action){ 
     console.log('made it into fetchGifSaga');
     console.log('this is action.payload in index.js', action.payload)
+    let stringToSend = action.payload
     let response = yield axios({
         method: 'POST',
         url: '/api/giphy',
-        data: action.payload
+        data: {string:stringToSend}
     });
 
     console.log('response data', response)
   }
   
+function* fetchGifSaga(){
+    
+}
+
 // Our only Reducer
 const getGif = (state = [], action) => {
     if(action.type === 'GET_GIF'){
@@ -34,6 +39,7 @@ const getGif = (state = [], action) => {
 
 function* sagaRoot() {
    yield takeEvery("FETCH_GIF", fetchGifSaga);
+   yield takeEvery("CREATE_GIF", createGifSaga)
 }
 
 
