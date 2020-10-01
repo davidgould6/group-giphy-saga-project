@@ -1,0 +1,29 @@
+[ ] Create DB
+    [ ] run queries in sql file `database.sql`.
+
+--- Search View ---
+
+    --Static-- 
+[ ] Create input field
+[ ] Create button for submit
+[ ] Display gif on dom
+[ ] Nav bar to go to Favorites View
+
+    --Functionality--
+[ ] Click button on submit
+    [ ] on submit will send query to giphy api (search end point limit 10.)
+[ ] temp click gif or button to save to favs 
+[ ] In Nav bar link to favorites (router/routes)
+
+--- Favorites View ---
+    --Static--
+[ ] Button? to route back to search view
+[ ] Show all favorited gifs on dom
+[ ] drop down/option for each gif (select category)
+    [ ] submit category button
+
+    --Functionality--
+[ ] Nav/button take back to search view
+[ ] Drop down = locally setting category state. 
+    [ ] Submit category Sending request to server 
+                                    --> sending query update to DB.
