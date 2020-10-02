@@ -44,7 +44,6 @@ function* createGifSaga(action){
 
 function* createFavoriteSaga(action){
     console.log('this is our Favorites payload', action.payload);
-    //let urlToSend = action.payload
     yield axios({
         method: 'POST',
         url: '/api/favorite',

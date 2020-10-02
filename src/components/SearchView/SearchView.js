@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SearchViewItem from './SearchViewItem';
+import SearchViewItem from '../SearchViewItem/SearchViewItem';
 
 class SearchView extends Component {
     state = {

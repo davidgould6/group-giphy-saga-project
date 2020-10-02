@@ -19,7 +19,6 @@ class FavoriteView extends Component {
             <div>
                 FavoriteView Component
                 <br></br>
-                {JSON.stringify(this.props.reduxState.getGif)}
                 {this.props.reduxState.getGif.map(gif => 
                     <FavoriteItem key={gif.id} gif={gif} />
                 )}
@@ -33,5 +32,3 @@ const mapStateToProps = (reduxState) => ({
 });
 
 export default connect(mapStateToProps)(FavoriteView);
-
-// Don't forget to import Component into parent Component

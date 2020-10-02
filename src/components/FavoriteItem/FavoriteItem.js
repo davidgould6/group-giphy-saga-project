@@ -3,12 +3,15 @@ import {connect} from 'react-redux';
 
 
 class FavoriteItem extends Component {
+    state = {
+        categoryId: 0
+    }
 
-
+    
     render(){
         return( // Can also just use <> </> instead of divs
             <li>
-                {this.props.gif.name}
+                <img src={this.props.gif.name} />
                 <select>
                     <option>Funny</option>
                     <option>Cohort</option>
