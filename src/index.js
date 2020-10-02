@@ -55,7 +55,7 @@ function* setCategorySaga(action){
     console.log('setCategorySaga', action.payload);
     yield axios({
         method: 'PUT',
-        url: `/api/favorites/${action.payload.id}`,
+        url: `/api/favorite/${action.payload.id}`,
         data: { category: action.payload.categoryId }
     });
 
