@@ -30,9 +30,10 @@ class SearchView extends Component {
         console.log('this.props is ', this.props);
         return( 
             <div className="galleryDiv">
-                <div classname="searchArea">
+                <div className="searchArea">
                     <TextField 
-                        label="Search for Gifs" variant="filled" 
+                        label="Search for Gifs" 
+                        variant="filled" 
                         type="text" 
                         value={this.state.searchParams} 
                         onChange={this.onSearchGifChange}/>
