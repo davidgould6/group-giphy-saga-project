@@ -30,7 +30,7 @@ class SearchView extends Component {
         console.log('this.props is ', this.props);
         return( 
             <div className="galleryDiv">
-                <div classname="searchArea">
+                <div className="searchArea">
                     <TextField 
                         label="Search for Gifs" variant="filled" 
                         type="text" 
@@ -47,7 +47,7 @@ class SearchView extends Component {
                         key={i}
                         item={item}
                         id={i}/>
-                        )}
+                    )}
                 </div>
             </div>
         );

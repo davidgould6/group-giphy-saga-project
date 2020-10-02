@@ -1,0 +1,24 @@
+.favItem{
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: column;
+   padding: 20px 20px 20px 20px;
+}
+
+.MuiCard-root.favorite{
+   height: 300px;
+   width: 200px;
+   /* display: flex;
+   flex-wrap: wrap;
+   justify-content: center; */
+}
+
+.selectClass{
+   height: 20px;
+   
+}
+
+button.MuiButton-root.favorite{
+   padding: 5px;
+   display: block;
+}
