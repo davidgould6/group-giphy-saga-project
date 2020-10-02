@@ -49,7 +49,28 @@ function* createFavoriteSaga(action){
         url: '/api/favorite',
         data: {url: action.payload}
     });
-    
+}
+
+function* setCategorySaga(action){
+    console.log('setCategorySaga', action.payload);
+    yield axios({
+        method: 'PUT',
+        url: `/api/favorite/${action.payload.id}`,
+        data: { category: action.payload.categoryId }
+    });
+
+}
+
+function* removeFavoriteSaga(action){
+    console.log('in removeFavoriteSaga', action.payload);
+    yield axios({
+        method: 'DELETE',
+        url: `/api/favorite/${action.payload}`
+    });
+
+    yield put({
+        type: 'FETCH_GIF'
+    });
 }
 
 const giphyReducer = (state = [], action) => {
@@ -69,8 +90,10 @@ const getGif = (state = [], action) => {
 
 function* sagaRoot() {
    yield takeEvery("FETCH_GIF", fetchGifSaga);
-   yield takeEvery("CREATE_GIF", createGifSaga)
-   yield takeEvery("CREATE_FAVORITE", createFavoriteSaga)
+   yield takeEvery("CREATE_GIF", createGifSaga);
+   yield takeEvery("CREATE_FAVORITE", createFavoriteSaga);
+   yield takeEvery("SET_CATEGORY", setCategorySaga);
+   yield takeEvery("REMOVE_FAVORITE", removeFavoriteSaga);
 }
 
 
