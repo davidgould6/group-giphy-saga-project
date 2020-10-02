@@ -49,7 +49,16 @@ function* createFavoriteSaga(action){
         url: '/api/favorite',
         data: {url: action.payload}
     });
-    
+}
+
+function* setCategorySaga(action){
+    console.log('setCategorySaga', action.payload);
+    yield axios({
+        method: 'PUT',
+        url: `/api/favorites/${action.payload.id}`,
+        data: { category: action.payload.categoryId }
+    });
+
 }
 
 const giphyReducer = (state = [], action) => {
@@ -69,8 +78,9 @@ const getGif = (state = [], action) => {
 
 function* sagaRoot() {
    yield takeEvery("FETCH_GIF", fetchGifSaga);
-   yield takeEvery("CREATE_GIF", createGifSaga)
-   yield takeEvery("CREATE_FAVORITE", createFavoriteSaga)
+   yield takeEvery("CREATE_GIF", createGifSaga);
+   yield takeEvery("CREATE_FAVORITE", createFavoriteSaga);
+   yield takeEvery("SET_CATEGORY", setCategorySaga);
 }
 
 
