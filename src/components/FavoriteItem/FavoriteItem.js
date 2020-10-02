@@ -25,6 +25,14 @@ class FavoriteItem extends Component {
         });
     }
     
+    unFavorite = () => {
+        console.log('in unfavorite');
+        this.props.dispatch({
+            type: "REMOVE_FAVORITE",
+            payload: this.props.gif.id
+        });
+    }
+
     render(){
         console.log('FavoriteItem this.state:', this.props);
         return( // Can also just use <> </> instead of divs
@@ -38,6 +46,7 @@ class FavoriteItem extends Component {
                     <option value="5" >Meme</option>
                 </select>
                 <button onClick={this.sendToSaga}>Submit</button>
+                <button onClick={this.unFavorite}>Unfavorite</button>
             </li>
         );
     }

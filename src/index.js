@@ -61,6 +61,18 @@ function* setCategorySaga(action){
 
 }
 
+function* removeFavoriteSaga(action){
+    console.log('in removeFavoriteSaga', action.payload);
+    yield axios({
+        method: 'DELETE',
+        url: `/api/favorite/${action.payload}`
+    });
+
+    yield put({
+        type: 'FETCH_GIF'
+    });
+}
+
 const giphyReducer = (state = [], action) => {
     if(action.type === 'API_RESULT'){
         return action.payload;
@@ -81,6 +93,7 @@ function* sagaRoot() {
    yield takeEvery("CREATE_GIF", createGifSaga);
    yield takeEvery("CREATE_FAVORITE", createFavoriteSaga);
    yield takeEvery("SET_CATEGORY", setCategorySaga);
+   yield takeEvery("REMOVE_FAVORITE", removeFavoriteSaga);
 }
 
 
