@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './SearchViewItem.css';
-import {Button, Card, CardContent} from '@material-ui/core';
+import {Button, Card} from '@material-ui/core';
 
 class SearchViewItem extends Component {
 

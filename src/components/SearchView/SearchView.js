@@ -32,7 +32,8 @@ class SearchView extends Component {
             <div className="galleryDiv">
                 <div className="searchArea">
                     <TextField 
-                        label="Search for Gifs" variant="filled" 
+                        label="Search for Gifs" 
+                        variant="filled" 
                         type="text" 
                         value={this.state.searchParams} 
                         onChange={this.onSearchGifChange}/>
