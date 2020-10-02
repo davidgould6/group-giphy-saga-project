@@ -48,7 +48,7 @@ class SearchView extends Component {
                         key={i}
                         item={item}
                         id={i}/>
-                        )}
+                    )}
                 </div>
             </div>
         );
