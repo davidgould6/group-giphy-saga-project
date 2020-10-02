@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FavoriteView from '../FavoriteView/FavoriteView';
 import SearchView from '../SearchView/SearchView';
 import { Route, HashRouter as Router, Link } from 'react-router-dom';
+import './App.css';
 
 class App extends Component {
 
@@ -10,7 +11,8 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <header>
+          <header >
+          <h1>Giphy Search!</h1>
             <nav>
               <main>
                 <ul>
@@ -20,8 +22,6 @@ class App extends Component {
               </main>
             </nav>
           </header>
-          <h1>Giphy Search!</h1>
-
           <Route path='/searchview' exact>
             <SearchView />
           </Route>

@@ -1,0 +1,14 @@
+.galleryDiv{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.displayGifs{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 50px
+}
+body{
+    background-color: #7BDFF2;
+}
