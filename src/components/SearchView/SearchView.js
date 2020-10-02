@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SearchViewItem from '../SearchViewItem/SearchViewItem';
+import './SearchView.css';
+import {Button, TextField} from '@material-ui/core';
 
 class SearchView extends Component {
     state = {
@@ -27,10 +29,18 @@ class SearchView extends Component {
         console.log('this is our state.searchParams', this.state.searchParams);
         console.log('this.props is ', this.props);
         return( 
-            <div>
-                THIS IS THE SEARCHVIEW COMPONENT
-                <input type="text" value={this.state.searchParams} placeholder="Search for gif" onChange={this.onSearchGifChange}/>
-                <button onClick={this.submitSearch}>Search</button>
+            <div className="galleryDiv">
+                <div classname="searchArea">
+                    <TextField 
+                        label="Search for Gifs" variant="filled" 
+                        type="text" 
+                        value={this.state.searchParams} 
+                        onChange={this.onSearchGifChange}/>
+                    <Button 
+                        variant="contained" 
+                        color="primary"
+                        onClick={this.submitSearch}>Search</Button>
+                </div>
                 <div className="displayGifs">
                     {this.props.reduxState.giphyReducer.map((item, i) => 
                         <SearchViewItem 

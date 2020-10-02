@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './SearchViewItem.css';
+import {Button, Card, CardContent} from '@material-ui/core';
 
 class SearchViewItem extends Component {
 
@@ -13,10 +15,19 @@ addFavorite = (imageUrl) => {
     render(){
         console.log('this is our props in ITEM', this.props)
         return( 
-               <div key={this.props.item.id}>
-                   <img src={this.props.item.images.fixed_width_small.url}/>
-                    <button onClick={() => this.addFavorite(this.props.item.images.fixed_width_small.url)}>Favorite</button>
+            
+               <div className="gifItem"
+                    key={this.props.item.id}>
+                    <Card>
+                        <img src={this.props.item.images.fixed_width_small.url}/>
+                        <Button 
+                            variant="contained" 
+                            color="primary"
+                            onClick={() => this.addFavorite(this.props.item.images.fixed_width_small.url)}
+                            >Favorite</Button>
+                    </Card>
                 </div> 
+           
         );
     }
 }
